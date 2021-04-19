@@ -10,5 +10,6 @@ public class Question1 {
 		
 		System.out.println("브렌치a 생성기념 실행");
 		System.out.println("브렌치a 생성 기념 2번째 실행");
+		System.out.println("브렌치a 생성 기념 3번째 실행");
 	}
 }
