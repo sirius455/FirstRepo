@@ -8,6 +8,6 @@ public class Question1 {
 		
 		System.out.println("Have a Good Time");
 		
-
+		System.out.println("ºê·»Ä¡a »ý¼º±â³ä ½ÇÇà");
 	}
 }
