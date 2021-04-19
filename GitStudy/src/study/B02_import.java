@@ -3,7 +3,7 @@ import quiz.A03_ex;
 	
 	public class B02_import {
 	
-	/*
+ /*
  	#improt 
  		-다른 패키지에 정의되어있는 클래스를 사용하기 위해서는 
  		 해당 클래스의 정확한 경로를 import 해야 한다.
