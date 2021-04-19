@@ -18,7 +18,7 @@ public class Question1 {
 >>>>>>> refs/heads/branchA
 		System.out.println("한번더 실행");
 <<<<<<< HEAD
-		System.out.println("또 한번더 실행bb");
+		System.out.println("또 한번더 실행bb");	
 =======
 		System.out.println("또 한번더 실행");
 >>>>>>> refs/heads/branchA
