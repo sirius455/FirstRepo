@@ -8,7 +8,7 @@ public class Question1 {
 		
 		System.out.println("Have a Good Time");
 		
-		System.out.println("branchA 생성 기념1");
+		System.out.println("branchA 생성 기념1123");
 		System.out.println("한번더 실행");
 	}
 }
