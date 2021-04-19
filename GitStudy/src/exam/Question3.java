@@ -7,6 +7,5 @@ public class Question3 {
 		
 		System.out.println("BASKET");
 		
-		System.out.println("main branch의 업데이트");
 	}
 }
