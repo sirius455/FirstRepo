@@ -10,5 +10,6 @@ public class Question2 {
 		// (단, Question2만 수정해야 함 * 이 주석은 branchB에서 작성되었음)
 		
 		System.out.println("branchB를 실행함");
+		System.out.println("브런치 bb");
 	}
 }
