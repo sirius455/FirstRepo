@@ -8,6 +8,6 @@ public class Question1 {
 		
 		System.out.println("Have a Good Time");
 		
-
+		System.out.println("메인에서 실행함");
 	}
 }
