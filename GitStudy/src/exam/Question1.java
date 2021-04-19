@@ -5,5 +5,7 @@ public class Question1 {
 		System.out.println(" /)/)");
 		System.out.println("(  ..)");
 		System.out.println("(  > $");
+		
+		System.out.println("Have a Good Time");
 	}
 }
