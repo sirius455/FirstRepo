@@ -5,5 +5,6 @@ public class Answer1 {
 		System.out.println("Question1의 정답");
 		System.out.println("branchC의 한번더");
 		System.out.println("branchC의 한번더");
+		System.out.println("branchC의 한번더");
 	}
 }
