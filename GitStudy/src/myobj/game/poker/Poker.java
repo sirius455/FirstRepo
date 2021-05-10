@@ -9,7 +9,7 @@ public class Poker {
 	
 	ArrayList<Player> players;
 	
-	Deck deck;
+	static Deck deck;
 	Dealer dealer;
 	
 	public Poker() {
@@ -132,24 +132,28 @@ public class Poker {
 		game.start();
 		
 		
-		
+		System.out.println(deck);
+
 		// 베팅이 끝나면 딜러가  3장 공개
 		game.next();
 		game.next();
 		game.next();
 		
 		// 다음 베팅 끝나면 딜러가 1장 공개
-		game.next();
+//		game.next();
 		
 		// 다음 베팅 끝나면 딜러가 1장 공개
-		game.next();
+//		game.next();
 		game.peekTable();
+		
+		game.players.get(0).peek();
+		game.players.get(1).peek();
+		game.players.get(2).peek();
 		
 		//결과 확인
 		game.open();
 		
-//		game.players.get(0).peek();
-//		game.players.get(1).peek();
-//		game.players.get(2).peek();
+System.out.println(deck);
+
 	}
 }

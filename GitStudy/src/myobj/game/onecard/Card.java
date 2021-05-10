@@ -1,7 +1,8 @@
-package myobj.game.poker;
+package myobj.game.onecard;
 
-public class Card implements Comparable<Card> {
-	
+
+public class Card {
+
 	final public static Rank ACE  = new Rank(0, "A");
 	final public static Rank TWO = new Rank(1, "2");
 	final public static Rank THREE = new Rank(2, "3");
@@ -15,20 +16,17 @@ public class Card implements Comparable<Card> {
 	final public static Rank JACK = new Rank(10, "J");
 	final public static Rank QUEEN = new Rank(11, "Q");
 	final public static Rank KING = new Rank(12, "K");
+	final public static Rank JOKER = new Rank(13, "JOKER");
 	
-	//final private static char[] shapes = {'♠', '♣', '♡', '◇'};
-	//final private static String[] korNames = {"스페이드", "클로버", "하트", "다이아몬드"};
-	//final private static String[] engNames = {"Spade", "Clover", "Heart", "Diamond"};
 	
-	final public static Suit SPADE = new Suit(0, '♠', "스페이드", "Spade");
-	final public static Suit CLOVER = new Suit(1, '♣', "클로버", "Clover");
-	final public static Suit HEART = new Suit(2, '♡', "하트", "Heart");
-	final public static Suit DIAMOND = new Suit(3, '◇', "다이아몬드", "Diamond");
-	
+	final public static Suit SPADE = new Suit(0, '♠');
+	final public static Suit CLOVER = new Suit(1, '♣');
+	final public static Suit HEART = new Suit(2, '♡');
+	final public static Suit DIAMOND = new Suit(3, '◇');
 	
 	final public static Rank[] Ranks = {
 			ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE,
-			TEN, JACK, QUEEN, KING
+			TEN, JACK, QUEEN, KING, JOKER
 	};
 	
 	final public static Suit[] SUITS = {SPADE, CLOVER, HEART, DIAMOND};
@@ -37,15 +35,18 @@ public class Card implements Comparable<Card> {
 	Rank rank;
 	Suit suit;
 	
-	
 	public Card(Suit suit, Rank rank) {
 		this.suit = suit;
 		this.rank = rank;
-		
 	}
+	
 	
 	public int getRankValue() {
 		return rank.getValue();
+	}
+	
+	public char getSuitValue() {
+		return suit.getShape();
 	}
 	
 	@Override
@@ -53,16 +54,6 @@ public class Card implements Comparable<Card> {
 		return String.format("%s%s", suit, rank);
 	}
 	
-	@Override
-	public int compareTo(Card o) {
-		// 숫자순으로 정렬하되, 같은 숫자라면 문양순으로 정렬해주세요
-		int rank_diff = this.rank.getValue() - o.rank.getValue();
-		
-		if (rank_diff == 0) {
-			return this.suit.getValue() - o.suit.getValue();
-		} else {
-			return rank_diff;
-		}
-	}
+	
 	
 }
