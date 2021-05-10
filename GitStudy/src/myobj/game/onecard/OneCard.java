@@ -60,7 +60,8 @@ public class OneCard {
 		for (int i = 0; i < player; i++) {
 			game.addPlayer();
 		}
-
+		//변화
+		
 		// 게임시작
 		game.start();
 		// 테이블 시작카드 오픈
