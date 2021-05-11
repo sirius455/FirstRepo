@@ -35,7 +35,7 @@ public class OneCard {
 	}
 
 	public void peekTable() {
-		System.out.println(table.tableDeck);
+		System.out.println(table.tableDeck.get(table.tableDeck.size() - 1));
 	}
 
 	public void open() {
@@ -60,8 +60,7 @@ public class OneCard {
 		for (int i = 0; i < player; i++) {
 			game.addPlayer();
 		}
-		//변화
-		
+
 		// 게임시작
 		game.start();
 		// 테이블 시작카드 오픈
@@ -74,12 +73,13 @@ public class OneCard {
 		boolean turn = true;
 		int end = 0;
 		int drawCard = 0;
+		boolean jack = false;
 		
 		while(true) {
+	
 		if(players >= player) {
-			players = 0;
+				players = 0;
 		}
-		
 		System.out.println("플레이어" + (players + 1) + "의 차례입니다");
 		System.out.print("현재 테이블덱 > ");
 		game.peekTable();
@@ -96,7 +96,7 @@ public class OneCard {
 			if(deck.deck.size() == 0) {
 				for(int j = 0; j < game.table.tableDeck.size(); j++) {
 				deck.deck.add(game.table.tableDeck.get(j));
-				deck.shuffle();
+				deck.shuffle();		
 				}
 			}
 			
@@ -112,6 +112,7 @@ public class OneCard {
 		} else if (choice == 2) {
 			System.out.print("낼카드를 선택해주세요 > ");
 			int num = sc.nextInt();
+			System.out.println();
 			
 			//잘못된 숫자입력
 			while (num - 1 >= game.players.get(players).hand.size()) {
@@ -119,9 +120,7 @@ public class OneCard {
 				num = sc.nextInt();
 				continue;
 			}
-			
-		
-			
+				
 			//원카드 문양 숫자맞추기
 			if(game.players.get(players).hand.get(num - 1).suit.getShape()
 				!= game.table.tableDeck.get(game.table.tableDeck.size() - 1).suit.getShape() &&
@@ -146,12 +145,9 @@ public class OneCard {
 				System.out.println();
 				continue;
 			} else if (game.players.get(players).hand.get(num - 1).getRankValue() == Card.QUEEN.getValue()) {
-				game.table.tableDeck.add(game.players.get(players).hand.get(num - 1));
-				game.players.get(players).drop(num - 1);
 				System.out.println("Q = 역순진행");
+				System.out.println();
 			} else if (game.players.get(players).hand.get(num - 1).getRankValue() == Card.JACK.getValue()) {
-				game.table.tableDeck.add(game.players.get(players).hand.get(num - 1));
-				game.players.get(players).drop(num - 1);
 				System.out.println("J = 다음사람차례 스킵");
 				System.out.println();
 				
@@ -191,7 +187,7 @@ public class OneCard {
 					
 					//원카드 문양 숫자맞추기
 					if(game.players.get(players).hand.get(num - 1).rank.getValue() != game.table.tableDeck.get(game.table.tableDeck.size() - 1).rank.getValue()) {
-						System.out.println("같은 숫자가아니면 한턴에 2번낼수없습니다");
+						System.out.println("같은 숫자가아니면 한턴에 여러번낼수없습니다");
 						continue;
 					}else if(game.players.get(players).hand.get(num - 1).suit.getShape()
 						!= game.table.tableDeck.get(game.table.tableDeck.size() - 1).suit.getShape() &&
@@ -200,12 +196,9 @@ public class OneCard {
 						System.out.println("낼수 없는 카드입니다.");
 						System.out.println();
 						continue;
-					} else if(game.players.get(players).hand.get(num - 1).getRankValue() == Card.ACE.getValue()) {
-						drawCard += 3;
-					} else if(game.players.get(players).hand.get(num - 1).getRankValue() == Card.TWO.getValue()){
-						drawCard += 2;
 					}
 					
+					//카드 기능들
 					if(game.players.get(players).hand.get(num - 1).getRankValue() == Card.ACE.getValue()) {
 						drawCard += 3;
 					} else if (game.players.get(players).hand.get(num - 1).getRankValue() == Card.TWO.getValue()) {
@@ -219,16 +212,11 @@ public class OneCard {
 						System.out.println();
 						continue;
 					} else if (game.players.get(players).hand.get(num - 1).getRankValue() == Card.QUEEN.getValue()) {
-						game.table.tableDeck.add(game.players.get(players).hand.get(num - 1));
-						game.players.get(players).drop(num - 1);
 						System.out.println("Q = 역순진행");
+						System.out.println();
 					} else if (game.players.get(players).hand.get(num - 1).getRankValue() == Card.JACK.getValue()) {
-						game.table.tableDeck.add(game.players.get(players).hand.get(num - 1));
-						game.players.get(players).drop(num - 1);
 						System.out.println("J = 다음사람차례 스킵");
 						System.out.println();
-						players += 2;
-						continue;
 					}
 					
 					game.table.tableDeck.add(game.players.get(players).hand.get(num - 1));
@@ -265,6 +253,8 @@ public class OneCard {
 			}
 		  }
 		
+		
+		//승리
 		if(end == 1) {
 			System.out.println("플레이어" + (players + 1) + "의 승리입니다");
 			break;
@@ -277,3 +267,4 @@ public class OneCard {
 	}
 	
 }
+
