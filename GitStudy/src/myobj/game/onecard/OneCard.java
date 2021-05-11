@@ -128,6 +128,7 @@ public class OneCard {
 				!= game.table.tableDeck.get(game.table.tableDeck.size() - 1).rank.getValue()) {
 				System.out.println("낼수 없는 카드입니다.");
 				System.out.println();
+				
 				continue;
 			} 
 			
