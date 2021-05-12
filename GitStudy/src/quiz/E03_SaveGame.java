@@ -33,61 +33,42 @@ public class E03_SaveGame {
 		Random ran = new Random();
 		
 		int player = 0;
-		int computer = 1;
-		char rack = '묵';
-		char scissors = '찌';
-		char paper = '빠';
-		int playerwin = 0;
-		int computerwin = 0;
-		int draw = 0;
+		int computer = 0;
 
 		while(true) {
-			
-			if(PLAYER == 0) {	
-				System.out.println("묵 = 1 찌 = 2 빠 = 3");
-				player = ran.nextInt(2) + 1;
+				
+				System.out.println("묵 = 1 찌 = 2 빠 = 3 중하나를 내세요");
+				player = ran.nextInt(3) + 1;
 				
 				if(player == 1) {
-					System.out.println("플레이어가 낸 수는 " + rack);
+					System.out.println("플레이어가 낸 수는 묵");
 				} else if (player == 2) {
-					System.out.println("플레이어가 낸 수는 " + scissors);
+					System.out.println("플레이어가 낸 수는 찌");
 				} else if (player == 3) {
-					System.out.println("플레이어가 낸 수는 " + paper);
+					System.out.println("플레이어가 낸 수는 빠");
 				}
 				
-			}   
-				if (COMPUTER == 1) {
-				System.out.println("묵 = 1 찌 = 2 빠 = 3");
-				computer = ran.nextInt(2) + 1;
+				computer = ran.nextInt(3) + 1;
 				
 				if(computer == 1) {
-					System.out.println("컴퓨터가 낸 수는 " + rack);
-					
+					System.out.println("컴퓨터가 낸 수는 묵");
 				} else if (computer == 2) {
-					System.out.println("컴퓨터가 낸 수는 " + scissors);
-					
+					System.out.println("컴퓨터가 낸 수는 찌");
 				} else if (computer == 3) {
-					System.out.println("컴퓨터가 낸 수는 " + paper);
+					System.out.println("컴퓨터가 낸 수는 빠");
 				}
-			}
+			
 			
 			if (player == computer) {
 				System.out.println("비겼습니다 한번더");
-				draw++;
 				System.out.println();
 			} else if (player == 1 && computer == 2 || player == 2 && computer == 3 || player == 3 && computer == 1) {
 				System.out.println("플레이어가 이겼습니다");
-				playerwin++;
 				break;
 			}  else if (player == 2 && computer == 1 || player == 3 && computer == 2 || player == 1 && computer == 3) {
 				System.out.println("컴퓨터가 이겼습니다");
-				computerwin++;
 				break;
 			}
-			
-		}
-		
-		System.out.println(playerwin);
-		
+		}		
 	}
 }
