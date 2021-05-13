@@ -50,13 +50,13 @@ public class Test_01 {
 				fin = new FileInputStream(newFlie);
 				din = new DataInputStream(fin);
 				
-				for (int i = 0; i < 30; i++) {
+				for (int i = 1; i < 31; i++) {
 					
 				readTime = din.readDouble();
 				readtrycount = din.readInt();
 				readClear = din.readUTF();
 				
-				System.out.println("시간 : " + readTime + " 횟수 : " + readtrycount + " 성공여부 : " + readClear);
+				System.out.println(i + "순위 " + "시간 : " + readTime + " 횟수 : " + readtrycount + " 성공여부 : " + readClear);
 				}
 				
 				
@@ -162,7 +162,11 @@ public class Test_01 {
 			DataOutputStream dout = new DataOutputStream(fout);
 			
 			
-			for(int i = 0; i < 30; i++) {
+			if(readTime < clearTime) {
+				
+			}
+			
+			for(int i = 1; i < 30; i++) {
 				dout.writeDouble(clearTime);
 				dout.writeInt(tryCount);
 				dout.writeUTF(clear);
