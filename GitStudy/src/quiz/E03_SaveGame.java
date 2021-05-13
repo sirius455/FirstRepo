@@ -32,33 +32,40 @@ public class E03_SaveGame {
 		int playerwin = 0;
 		int playerlose = 0;
 		int playerdraw = 0;
-		int countwin = 0;
-		int countlose = 0;
-		int countdraw = 0;
 		
 		System.out.print("이름을 입력해주세요 > ");
 		String name = sc.nextLine();
 		
+		
 		File newFlie = new File("./note/" + name + ".txt");
 		
-		try {
-			FileInputStream rankread = new FileInputStream(newFlie);
-			
-			byte[] buffer = new byte[100];
-			
-			// ※ 원하는 바이트 크기만큼씩 읽기
-			int len;
-			while ((len = rankread.read(buffer)) != -1) {
-				System.out.println(new String(buffer, 0, len));
+	
+		if(newFlie.exists()) {
+			System.out.println("불러올파일이 있습니다");
+			try {
+				FileInputStream rankread = new FileInputStream(newFlie);
+				
+				playerwin = rankread.read();
+				playerlose = rankread.read();
+				playerdraw = rankread.read();
+				
+				rankread.close();
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch(IOException e) {
+				e.printStackTrace();
 			}
-			rankread.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch(IOException e) {
-			e.printStackTrace();
+		} else {
+			System.out.println("불러올파일이 없습니다");
 		}
+		System.out.println();
+		System.out.println("------플레이어 전적----------");
+		System.out.println("플레이어 승" + playerwin);
+		System.out.println("플레이어 패" + playerlose);
+		System.out.println("플레이어 비김" + playerdraw);
+		System.out.println();
 		
-		while(true) {		
+		for (int i = 0; i < 10; i++) {		
 			
 				System.out.println("묵 = 1 찌 = 2 빠 = 3 중하나를 내세요");
 				player = ran.nextInt(3) + 1;
@@ -83,31 +90,26 @@ public class E03_SaveGame {
 			
 			
 			if (player == computer) {
-				System.out.println("비겼습니다 한번더");
+				System.out.println("비겼습니다");
 				playerdraw++;
 				System.out.println();
 			} else if (player == 1 && computer == 2 || player == 2 && computer == 3 || player == 3 && computer == 1) {
 				System.out.println("플레이어가 이겼습니다");
 				playerwin++;
-				break;
 			}  else if (player == 2 && computer == 1 || player == 3 && computer == 2 || player == 1 && computer == 3) {
 				System.out.println("컴퓨터가 이겼습니다");
 				playerlose++;
-				break;
 			}
 			
 		}
-			
-		 countwin += playerwin;
-		 countlose += playerlose;
-		 countdraw += playerwin;
 		
 		try {
 			FileOutputStream ranks = new FileOutputStream(newFlie);
 			
-			ranks.write("플레이어 승리횟수 >\n".getBytes());
-			ranks.write("플레이어 패배횟수 >\n".getBytes());
-			ranks.write("플레이어 비긴횟수 >\n".getBytes());
+			ranks.write(playerwin);
+			ranks.write(playerlose);
+			ranks.write(playerdraw);
+			
 			ranks.close();
 			
 	    } catch (FileNotFoundException e) {
@@ -115,6 +117,7 @@ public class E03_SaveGame {
 	    } catch (IOException e) {
 	    	e.printStackTrace();
 	    }
+		
 		
 	}
 }

@@ -85,8 +85,11 @@ public class E03_FileIo {
 			fout.write(68);
 			fout.write('\n');
 			
+			int a = 20;
+			String b = String.format("%s", a);
+			
 			// 2. byte[]를 이용하는 방식
-			fout.write("안녕하세요!\n".getBytes());
+			fout.write(b .getBytes());
 			
 			fout.close();
 	    } catch (FileNotFoundException e) {
