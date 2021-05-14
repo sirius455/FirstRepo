@@ -80,7 +80,6 @@ public class Test_01 {
 		int strike = 0, ball = 0;
 		int tryCount = 0;
 		int lose = 0;
-		long start4 = 0;
 		double starttime = 0;
 		double endtime = 0;
 		String clear = null;
