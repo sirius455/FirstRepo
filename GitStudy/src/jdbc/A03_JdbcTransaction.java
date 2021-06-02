@@ -11,7 +11,7 @@ public class A03_JdbcTransaction {
 		String sql = "UPDATE fruits SET fcolor = 'BLUE' WHERE fname = 'Orange'";
 		
 		try (
-			Connection conn = DBConnecter.getConnection();
+			Connection conn = DBConnector.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(sql);	
 		) {
 		
